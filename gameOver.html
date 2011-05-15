@@ -1,0 +1,48 @@
+<html>
+<head>
+	<script type="text/javascript">
+	
+	window.onload = function()
+	{
+		document.ontouchstart = function(event) 
+		{ 
+			event.prevent.Default();
+		}
+
+		var div = document.getElementById('DgameOver');
+		div.height = screen.availHeight;
+		div.width = screen.availWidth;
+		
+		document.getElementById('hscore').innerHTML = (localStorage["snake_hs"] == null) ? "0" : localStorage["snake_hs"];
+		
+		document.getElementById('tscore').innerHTML = (localStorage["snake_ts"] == null) ? "ERROR" : localStorage["snake_ts"];
+	}
+
+	function back()
+	{
+		window.location = "snake.html";
+ 	}
+	
+	function quit()
+	{
+		blackberry.app.exit();
+	}
+	</script>
+	
+</head>
+<body style="background-color:black; color:white">
+<div style="text-align:center;">
+<div id="DgameOver" style="text-align:center; vertical-align:middle; font-family:Comic Sans;">
+<span style="font-size:100px">GAME OVER</span>
+<br /><br /><br /><br />
+<br />
+<span style="font-size:25px">Your score was <span id="tscore"></span> </span>
+<br />
+<span style="font-size:50px">High score is <span id="hscore">0</span>
+<br /><br />
+<button type="button" onclick="back()" id="BTryAgain">Try Again</button> 
+<button type="button" onclick="quit()" id="BQuit">Quit</button> 
+</div>
+</div>
+</body>
+</html>
